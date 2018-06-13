@@ -1,8 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Route } from "react-router-dom";
-import HomePage from "./components/pages/HomePage";
-import SecondPage from "./components/pages/SecondPage";
+import HomePage from "./containers/HomePage";
+import SecondPage from "./containers/SecondPage";
 
 const App = ({ location }) => (
   <div className="ui container">
