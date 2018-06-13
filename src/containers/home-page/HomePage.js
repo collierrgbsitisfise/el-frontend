@@ -5,11 +5,25 @@ import { connect } from "react-redux";
 import * as actions from "../../actions/auth";
 import "./home-page.css";
 
-const HomePage = ({ isAuthenticated, logout }) => (
-  <div className="home-page">
-    <input type="text" className="link-input" placeholder="Enter Link Address"/>
-  </div>
-);
+class HomePage extends React.Component {
+  
+  componentDidMount(){
+    this.nameInput.focus();
+  }
+  
+  render () {
+    return (
+      <div className="home-page">
+        <input
+          ref={(input) => { this.nameInput = input; }}
+          type="text"
+          className="link-input"
+          placeholder="Enter Link Address"/>
+      </div>
+    ); 
+  }
+
+}
 
 HomePage.propTypes = {
   isAuthenticated: PropTypes.bool.isRequired,
