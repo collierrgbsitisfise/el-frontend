@@ -5,4 +5,21 @@
     align-items: center;
     justify-content: center;
     flex-flow: column;
+    box-sizing: border-box;
+    color: white;
+}
+
+.link-input {
+    font-size: 45px;
+    text-align: center;
+    width: 40vw;
+    min-width: 400px;
+    border: none;
+    background: black;
+    border-bottom: 3px solid white;
+}
+
+.link-input:focus{
+    outline: none;
+    color: white;
 }

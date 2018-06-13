@@ -3,8 +3,10 @@
 body {
     margin: 0px !important;
     padding: 0px !important;
+    background: black;
 }
 
 * {
     font-family: 'VT323', monospace;
+    letter-spacing: 3px;
 }

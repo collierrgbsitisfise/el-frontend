@@ -7,8 +7,7 @@ import "./home-page.css";
 
 const HomePage = ({ isAuthenticated, logout }) => (
   <div className="home-page">
-    <h1>Home Page</h1>
-    <Link to="/second-page">Login</Link>
+    <input type="text" className="link-input" placeholder="Enter Link Address"/>
   </div>
 );
 
