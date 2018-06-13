@@ -2,10 +2,11 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import * as actions from "../actions/auth";
+import * as actions from "../../actions/auth";
+import "./home-page.css";
 
 const HomePage = ({ isAuthenticated, logout }) => (
-  <div>
+  <div className="home-page">
     <h1>Home Page</h1>
     <Link to="/second-page">Login</Link>
   </div>
