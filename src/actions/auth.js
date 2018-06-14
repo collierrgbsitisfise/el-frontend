@@ -1,5 +1,5 @@
 import { USER_LOGGED_IN, USER_LOGGED_OUT } from "../types";
-import api from "../api";
+import api from "../api/api";
 import setAuthorizationHeader from "../utils/setAuthorizationHeader";
 
 export const userLoggedIn = user => ({

@@ -1,6 +1,6 @@
 import { normalize } from "normalizr";
 import { BOOKS_FETCHED, BOOK_CREATED } from "../types";
-import api from "../api";
+import api from "../api/api";
 import { bookSchema } from "../schemas";
 
 // data.entities.books

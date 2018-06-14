@@ -1,4 +1,4 @@
-import api from "../api";
+import api from "../api/api";
 import { userLoggedIn } from "./auth";
 
 export const signup = data => dispatch =>
