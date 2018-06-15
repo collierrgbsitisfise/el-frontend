@@ -10,3 +10,25 @@ body {
     font-family: 'VT323', monospace;
     letter-spacing: 3px;
 }
+
+.btn {
+    box-sizing: border-box;
+    appearance: none;
+    background-color: transparent;
+    border: 2px solid white;
+    border-radius: 0.6em;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-self: center;
+}
+
+.btn:hover {
+    color: black;
+    outline: 0;
+}
+
+.btn:focus {
+    color: black;
+    outline: 0;
+}
