@@ -30,6 +30,7 @@
 }
 
 /* button styles */
+
 .action {
     font-size: 1.2rem;
     line-height: 1;
@@ -57,7 +58,7 @@
     text-align: center;
     text-transform: uppercase;
     font-weight: 800;
-    color: white !important;    
+    color: white !important;
     transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
 }
 
