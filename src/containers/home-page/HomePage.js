@@ -31,6 +31,9 @@ class HomePage extends React.Component {
           type="text"
           className="link-input"
           placeholder="Enter Link Address"/>
+          <button className="btn action">
+              get short link
+          </button>
       </div>
     ); 
   }
