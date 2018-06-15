@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import * as actions from "../../actions/auth";
+import { getLink } from "../../actions/link";
 import "./home-page.css";
 
 class HomePage extends React.Component {
@@ -11,11 +11,23 @@ class HomePage extends React.Component {
     this.nameInput.focus();
   }
   
+  constructor(props) {
+    super(props)
+    
+  }
+  
   render () {
+    
+    const {
+      getLink
+    } = this.props;
+
     return (
-      <div className="home-page">
+      <div className="home-page" onClick={() => {
+          getLink('http://google.com');
+        }}>
         <input
-          ref={(input) => { this.nameInput = input; }}
+          ref={(input) => {this.nameInput = input; }}
           type="text"
           className="link-input"
           placeholder="Enter Link Address"/>
@@ -26,8 +38,7 @@ class HomePage extends React.Component {
 }
 
 HomePage.propTypes = {
-  isAuthenticated: PropTypes.bool.isRequired,
-  logout: PropTypes.func.isRequired
+  getLink: PropTypes.func.isRequired
 };
 
 function mapStateToProps(state) {
@@ -36,4 +47,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, { logout: actions.logout })(HomePage);
+export default connect(mapStateToProps, { getLink })(HomePage);

@@ -4,9 +4,7 @@ import {
     GET_SHORT_LINK_REQUEST_ERROR
 } from './../types';
 
-import {
-    linkAPI
-} from './../api/api';
+import linkAPI from './../api/api';
 
 export const getShortLinkRequest = link => ({
     type: GET_SHORT_LINK_REQUEST,
@@ -35,9 +33,9 @@ export const getShortLinkRequestError = err => ({
 });
 
 
-export const getShortLink = (link) => dispatch => {
+export const getLink = (link) => dispatch => {
     dispatch(getShortLinkRequest(link));
     linkAPI.getShortLink(link)
-        .then(data => dispatch(getShortLinkRequestSuccess(data)))
+        .then(body => dispatch(getShortLinkRequestSuccess(body.data)))
         .catch(err => dispatch(getShortLinkRequestError(err)));
 }
