@@ -7,7 +7,10 @@
     flex-flow: column;
     box-sizing: border-box;
     color: white;
+    transform: scale(1); /* you need a scale here to allow it to transition in both directions */
+    transition: 0s.15s all ease;
 }
+
 
 /* Input styles */
 
@@ -69,4 +72,20 @@
 
 .not-visible {
     visibility: hidden;
+}
+
+/* top result bar */
+
+#top {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    width: 100%;
+    height: 25px;
+    color: black;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

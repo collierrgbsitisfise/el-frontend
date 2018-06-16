@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { getLink } from "../../actions/link";
-import linkResultBar from "./../../components/linkResultBar/linkResultBar.js";
+import CONGIF from "../../config";
 
 import "./home-page.css";
 
@@ -12,7 +12,7 @@ const LINK_REG_EXP = /^(?:(?:(?:https?|ftp):)?\/\/)(?:\S+(?::\S*)?@)?(?:(?!(?:10
 class HomePage extends React.Component {
   
   componentDidMount(){
-    this.nameInput.focus();
+    // this.nameInput.focus();
   }
   
   constructor(props) {
@@ -20,6 +20,10 @@ class HomePage extends React.Component {
     this.state = {
       link: '',
     }
+  }
+  
+  formatShortLink = hash => {
+    return `${CONGIF.API_ENDPOINT}/${hash}`
   }
   
   handleChange = e => this.setState({
@@ -33,9 +37,18 @@ class HomePage extends React.Component {
       shortLink
     } = this.props;
 
+    
     return (
       <div className="home-page">
-        <linkResultBar />
+        {
+          (shortLink.status === "FINISHED" &&
+           shortLink.error === false) && 
+          (
+            <div id="top">
+              <h4>{this.formatShortLink(shortLink.data.shortLinkHash)}</h4>
+            </div>
+          )
+        }
         <input
           value={this.state.link}
           onChange={this.handleChange}
