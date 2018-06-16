@@ -89,3 +89,26 @@
     justify-content: center;
     align-items: center;
 }
+
+#top > h4 {
+    margin: 0px;
+    overflow: hidden;
+}
+
+#bottom {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 999;
+    width: 100%;
+    height: 25px;
+    color: black;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#bottom:hover {
+    cursor: pointer;
+}

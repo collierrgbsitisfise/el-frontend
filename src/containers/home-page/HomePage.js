@@ -30,6 +30,17 @@ class HomePage extends React.Component {
     link: e.target.value
   });
 
+  copyTextToClipboard = selector => {
+    let cpoyText = document.getElementsByTagName("h4")[0];
+    let range = document.createRange();
+    range.selectNode(cpoyText);
+    window.getSelection().addRange(range);
+    try {
+      let res = document.execCommand('copy');
+    } catch (err) {
+    }
+  }
+  
   render () {
     
     const {
@@ -45,7 +56,7 @@ class HomePage extends React.Component {
            shortLink.error === false) && 
           (
             <div id="top">
-              <h4>{this.formatShortLink(shortLink.data.shortLinkHash)}</h4>
+              <h4 className="result-link">{this.formatShortLink(shortLink.data.shortLinkHash)}</h4>
             </div>
           )
         }
@@ -77,6 +88,15 @@ class HomePage extends React.Component {
                     Incorrect Link
                 </button>
               )
+          }
+          {
+            (shortLink.status === "FINISHED" &&
+            shortLink.error === false) && 
+            (
+              <div id="bottom" onClick={ () => this.copyTextToClipboard('.result-link')}>
+                <h4>COPPY TO CLI BORD</h4>
+              </div>
+            )
           }
       </div>
     ); 
