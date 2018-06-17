@@ -19,7 +19,7 @@ const store = createStore(
 ReactDOM.render(
   <BrowserRouter>
     <Provider store={store}>
-      <Route component={App} />
+      <Route path={`${process.env.PUBLIC_URL}/`} component={App} />
     </Provider>
   </BrowserRouter>,
   document.getElementById("root")

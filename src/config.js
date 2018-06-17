@@ -1,9 +1,9 @@
 const dev = {
-    API_ENDPOINT: 'http://localhost:5000'
+    API_ENDPOINT: 'http://209.97.137.33:5000'
 };
 
 const prod = {
-    API_ENDPOINT: 'http://localhost:6000'
+    API_ENDPOINT: 'http://209.97.137.33:5000'
 };
 
 const config = process.env.REACT_APP_STAGE === 'production' ?

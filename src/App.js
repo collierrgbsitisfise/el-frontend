@@ -8,8 +8,8 @@ import './app.css';
 
 const App = ({ location }) => (
   <div className="main-wrapper">
-    <Route location={location} path="/" exact component={HomePage} />
-    <Route location={location} path="/second-page" component={SecondPage}/>
+    <Route location={location} path={`${process.env.PUBLIC_URL}/`} exact component={HomePage} />
+    <Route location={location} path={`${process.env.PUBLIC_URL}/second-page`} component={SecondPage}/>
   </div>
 );
 
