@@ -8,7 +8,6 @@ import { composeWithDevTools } from "redux-devtools-extension";
 import App from "./App";
 import registerServiceWorker from "./registerServiceWorker";  
 import rootReducer from "./rootReducer";
-import config from './config';
 import "./index.css";
 
 
@@ -27,8 +26,4 @@ ReactDOM.render(
   document.getElementById("root")
 );
 
-if (!config.production) {
-  console.log('PRODUCTION BUILD BRO');
-  alert('PRODUCTION');
-  registerServiceWorker();
-}
+registerServiceWorker();
