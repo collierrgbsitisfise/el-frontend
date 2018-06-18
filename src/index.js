@@ -6,10 +6,12 @@ import { Provider } from "react-redux";
 import thunk from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";
 import App from "./App";
-import registerServiceWorker from "./registerServiceWorker";
+import registerServiceWorker from "./registerServiceWorker";  
 import rootReducer from "./rootReducer";
-
+import config from './config';
 import "./index.css";
+
+
 
 const store = createStore(
   rootReducer,
@@ -24,4 +26,9 @@ ReactDOM.render(
   </BrowserRouter>,
   document.getElementById("root")
 );
-registerServiceWorker();
+
+if (!config.production) {
+  console.log('PRODUCTION BUILD BRO');
+  alert('PRODUCTION');
+  registerServiceWorker();
+}

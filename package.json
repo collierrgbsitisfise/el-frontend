@@ -2,7 +2,6 @@
   "name": "bookworm-react",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://collierrgbsitisfise.github.io/el-frontend",
   "dependencies": {
     "axios": "^0.16.2",
     "gravatar-url": "^2.0.0",
@@ -26,8 +25,6 @@
     "prod": "REACT_APP_STAGE=production react-scripts start",
     "build": "REACT_APP_STAGE=production react-scripts build",
     "test": "react-scripts test --env=jsdosm",
-    "predeploy": "REACT_APP_STAGE=production npm run build",
-    "deploy": "REACT_APP_STAGE=production gh-pages -d build",
     "eject": "react-scripts eject",
     "lint": "eslint src"
   },
@@ -39,7 +36,6 @@
     "eslint-plugin-jsx-a11y": "^5.1.1",
     "eslint-plugin-prettier": "^2.2.0",
     "eslint-plugin-react": "^7.3.0",
-    "gh-pages": "^1.2.0",
     "prettier": "^1.6.1"
   },
   "proxy": "http://localhost:8080"

@@ -11,6 +11,7 @@ const config = process.env.REACT_APP_STAGE === 'production' ?
     dev;
 
 export default {
+    production: process.env.REACT_APP_STAGE === 'production',
     SEC_KEY: 'blalblalblablalblal',
     ...config
 };
