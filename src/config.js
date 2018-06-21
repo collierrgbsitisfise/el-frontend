@@ -3,7 +3,7 @@ const dev = {
 };
 
 const prod = {
-    API_ENDPOINT: 'http://209.97.137.33:5000'
+    API_ENDPOINT: 'http://elshare.co'
 };
 
 const config = process.env.REACT_APP_STAGE === 'production' ?
