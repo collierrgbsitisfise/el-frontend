@@ -48,6 +48,13 @@ class HomePage extends React.Component {
       shortLink
     } = this.props;
 
+    const toogler = (
+      <div className="toggle">
+        <input type="checkbox" className="check" />
+        <b className="b switch"></b>
+        <b className="b track"></b>
+      </div>
+    )
     
     return (
       <div className="home-page">
@@ -67,6 +74,8 @@ class HomePage extends React.Component {
           type="text"
           className="link-input"
           placeholder="Enter Link Address"/>
+          <h3>Enbled only in private mode</h3>
+          {toogler}
           {
             LINK_REG_EXP.test(this.state.link) ? 
               (
@@ -80,10 +89,6 @@ class HomePage extends React.Component {
               ) :
               (
                 <button
-                  onClick={() => {
-                    console.log('it is state');
-                    console.log(this.state.link);
-                  }}
                   className={"btn incorrect " + (!this.state.link ? 'not-visible' : '')}>
                     Incorrect Link
                 </button>
