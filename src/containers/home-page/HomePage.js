@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { getLink } from "../../actions/link";
 import CONGIF from "../../config";
@@ -19,6 +19,7 @@ class HomePage extends React.Component {
     super(props)
     this.state = {
       link: '',
+      isPrivateOnly: false
     }
   }
   
@@ -50,7 +51,16 @@ class HomePage extends React.Component {
 
     const toogler = (
       <div className="toggle">
-        <input type="checkbox" className="check" />
+        <input
+          type="checkbox"
+          value={this.state.isPrivateOnly}
+          onChange={() => {
+            this.setState({
+              ...this.state,
+              isPrivateOnly: !this.state.isPrivateOnly 
+            });
+          }}
+          className="check" />
         <b className="b switch"></b>
         <b className="b track"></b>
       </div>
@@ -74,14 +84,15 @@ class HomePage extends React.Component {
           type="text"
           className="link-input"
           placeholder="Enter Link Address"/>
-          <h3>Enbled only in private mode</h3>
+          {!this.state.isPrivateOnly && (<h2>Enabled in both modes</h2>)}
+          {this.state.isPrivateOnly && (<h2>Enabled in private mode only</h2>)}
           {toogler}
           {
             LINK_REG_EXP.test(this.state.link) ? 
               (
                 <button
                   onClick={() => {
-                    getLink(this.state.link);
+                    getLink(this.state.link, this.state.isPrivateOnly);
                   }}
                   className={"btn action " + (!this.state.link ? 'not-visible' : '')}>
                     get short link
