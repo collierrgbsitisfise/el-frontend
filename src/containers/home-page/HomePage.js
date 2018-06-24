@@ -12,14 +12,15 @@ const LINK_REG_EXP = /^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-
 class HomePage extends React.Component {
   
   componentDidMount(){
-    // this.nameInput.focus();
+    this.nameInput.focus();
   }
   
   constructor(props) {
     super(props)
     this.state = {
       link: '',
-      isPrivateOnly: false
+      isPrivateOnly: false,
+      isOnceAvailable: false,
     }
   }
   
@@ -49,22 +50,43 @@ class HomePage extends React.Component {
       shortLink
     } = this.props;
 
-    const toogler = (
-      <div className="toggle">
-        <input
-          type="checkbox"
-          value={this.state.isPrivateOnly}
-          onChange={() => {
-            this.setState({
-              ...this.state,
-              isPrivateOnly: !this.state.isPrivateOnly 
-            });
-          }}
-          className="check" />
-        <b className="b switch"></b>
-        <b className="b track"></b>
+    const privateMode = (
+      <div className="container">
+        <label htmlFor="private-checkbox">
+          <input
+            value={this.state.isPrivateOnly} 
+            id="private-checkbox"
+            type="checkbox"
+            name="checkbox"
+            onChange={() => {
+              this.setState({
+                ...this.state,
+                isPrivateOnly: !this.state.isPrivateOnly
+              });
+            }}/>
+          <span className="label-text">For private(incognito) only</span>
+        </label>
       </div>
     )
+
+    const onceAvailable = (
+      <div className="container">
+        <label htmlFor="once-availabel-checkbox">
+          <input
+            value={this.state.isOnceAvailable}
+            id="once-availabel-checkbox"
+            type="checkbox"
+            name="checkbox"
+            onChange={() => {
+              this.setState({
+                ...this.state,
+                isOnceAvailable: !this.state.isOnceAvailable
+              });
+            }}/>
+          <span className="label-text">Once available link</span>
+        </label>
+      </div>
+    ); 
     
     return (
       <div className="home-page">
@@ -86,9 +108,10 @@ class HomePage extends React.Component {
           type="text"
           className="link-input"
           placeholder="Enter Link Address"/>
-          {!this.state.isPrivateOnly && (<h2>Enabled in both modes</h2>)}
-          {this.state.isPrivateOnly && (<h2>Enabled in private(incognito) mode only</h2>)}
-          {toogler}
+          {/* {!this.state.isPrivateOnly && (<h2>Enabled in both modes</h2>)}
+          {this.state.isPrivateOnly && (<h2>Enabled in private(incognito) mode only</h2>)} */}
+          {privateMode}
+          {onceAvailable}
           {
             LINK_REG_EXP.test(this.state.link) ? 
               (

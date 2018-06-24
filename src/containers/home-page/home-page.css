@@ -21,11 +21,13 @@
     min-width: 380px;
     margin-left: 20px;
     margin-right: 20px;
+    margin-bottom: 20px;
     border: none;
     background: black;
     color: white;
     border-bottom: 3px solid white;
 }
+
 @media (max-width: 720px) {
     .link-input {
         font-size: 35px;
@@ -50,7 +52,7 @@
 .action {
     font-size: 1.2rem;
     line-height: 1;
-    margin-top: 130px;
+    /* margin-top: 130px; */
     padding: 1.2em 2.8em;
     text-decoration: none;
     text-align: center;
@@ -68,7 +70,7 @@
 .incorrect {
     font-size: 1.2rem;
     line-height: 1;
-    margin-top: 130px;
+    /* margin-top: 130px; */
     padding: 1.2em 2.8em;
     text-decoration: none;
     text-align: center;
@@ -79,8 +81,8 @@
 }
 
 .incorrect:hover {
-    box-shadow: 0 0 40px 40px red inset !important;
-    color: white !important;
+    box-shadow: 0 0 40px 40px white inset !important;
+    color: black !important;
 }
 
 .not-visible {
@@ -126,75 +128,53 @@
     cursor: pointer;
 }
 
-/* toogler styles */
+/* checkboxes styles */
 
-.b {
-    display: block;
-}
-
-.toggle {
+.container {
+    /* border: 1px solid red; */
+    width: 50vw;
+    min-width: 380px; 
+    margin-top: 20px;
+    margin-bottom: 20px;
     display: flex;
-    flex-flow: column;
-    position: absolute;
-    width: 200px;
-    height: 60px;
-    border-radius: 50px;
-    background-color: black;
-    overflow: hidden;
-    box-shadow: inset 0 0 2px 1px rgba(0, 0, 0, .05);
-    border: 5px solid white;
+    justify-content: start;
+    align-items: start;
+    flex-direction: column;
+    width: auto;
+    height: auto;
 }
 
-.check {
-    position: absolute;
-    display: block;
+.container span {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.container label {
     cursor: pointer;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    z-index: 6;
 }
 
-.check:checked~.track {
-    background-color: white;
+.container label input[type="checkbox"] {
+    display: none;
 }
 
-.check:checked~.switch {
-    right: 2px;
-    left: 140px;
-    background-color: black;
-    transition-duration: .6s, .2s;
+.container label input[type="checkbox"]+.label-text:before {
+    display: inline-block;
+    transition: all 0.2s ease-in-out;
+    margin: -6px 15px 0 0;
+    vertical-align: middle;
+    width: 30px;
+    height: 30px;
+    background: black;
+    border: 2px solid white;
+    border-radius: 5px;
+    color: black;
+    content: "";
 }
 
-.switch {
-    position: absolute;
-    left: 2px;
-    top: 2px;
-    bottom: 2px;
-    right: 140px;
-    background-color: #fff;
-    border-radius: 36px;
-    z-index: 1;
-    transition-duration: .2s, .6s;
-    transition-property: left, right;
-    transition-easing-funciton: cubic-bezier(.2, .1, 0, 1);
-    box-shadow: 0 1px 2px rgba(0, 0, 0, .2);
-}
-
-.toggle:active .switch {
-    left: 2px;
-    right: 2px;
-}
-
-.track {
-    position: absolute;
-    left: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    transition: .4s ease;
-    border-radius: inherit;
-    box-shadow: inset 0 0 2px 1px rgba(0, 0, 0, .05);
+.container label input[type="checkbox"]:checked+.label-text:before {
+    text-align: end;
+    line-height: 0.8em;
+    font-size: 30px;
+    color: #ecf0f1;
+    content: "✔";
 }
