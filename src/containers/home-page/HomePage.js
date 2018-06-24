@@ -108,8 +108,6 @@ class HomePage extends React.Component {
           type="text"
           className="link-input"
           placeholder="Enter Link Address"/>
-          {/* {!this.state.isPrivateOnly && (<h2>Enabled in both modes</h2>)}
-          {this.state.isPrivateOnly && (<h2>Enabled in private(incognito) mode only</h2>)} */}
           {privateMode}
           {onceAvailable}
           {
@@ -117,7 +115,7 @@ class HomePage extends React.Component {
               (
                 <button
                   onClick={() => {
-                    getLink(this.state.link, this.state.isPrivateOnly);
+                    getLink(this.state.link, this.state.isPrivateOnly, this.state.isOnceAvailable);
                   }}
                   className={"btn action " + (!this.state.link ? 'not-visible' : '')}>
                     get short link

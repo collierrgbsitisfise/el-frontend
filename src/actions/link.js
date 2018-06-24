@@ -33,9 +33,9 @@ export const getShortLinkRequestError = err => ({
 });
 
 
-export const getLink = (link,privateOnly=false) => dispatch => {
+export const getLink = (link,privateOnly=false,isOnceAvailable=false) => dispatch => {
     dispatch(getShortLinkRequest(link));
-    linkAPI.getShortLink(link,privateOnly)
+    linkAPI.getShortLink(link,privateOnly,isOnceAvailable)
         .then(body => dispatch(getShortLinkRequestSuccess(body.data)))
         .catch(err => dispatch(getShortLinkRequestError(err)));
 }
