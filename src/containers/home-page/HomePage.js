@@ -73,7 +73,9 @@ class HomePage extends React.Component {
            shortLink.error === false) && 
           (
             <div id="top">
-              <h4 className="result-link">{this.formatShortLink(shortLink.data.shortLinkHash)}</h4>
+              <a href={this.formatShortLink(shortLink.data.shortLinkHash)} target="_blank">
+                <h3 className="result-link">{this.formatShortLink(shortLink.data.shortLinkHash)}</h3>
+              </a>
             </div>
           )
         }
@@ -85,7 +87,7 @@ class HomePage extends React.Component {
           className="link-input"
           placeholder="Enter Link Address"/>
           {!this.state.isPrivateOnly && (<h2>Enabled in both modes</h2>)}
-          {this.state.isPrivateOnly && (<h2>Enabled in private mode only</h2>)}
+          {this.state.isPrivateOnly && (<h2>Enabled in private(incognito) mode only</h2>)}
           {toogler}
           {
             LINK_REG_EXP.test(this.state.link) ? 
@@ -105,7 +107,7 @@ class HomePage extends React.Component {
                 </button>
               )
           }
-          {
+          {/* {
             (shortLink.status === "FINISHED" &&
             shortLink.error === false) && 
             (
@@ -113,7 +115,7 @@ class HomePage extends React.Component {
                 <h4>COPPY TO CLI BORD</h4>
               </div>
             )
-          }
+          } */}
       </div>
     ); 
   }

@@ -26,6 +26,19 @@
     color: white;
     border-bottom: 3px solid white;
 }
+@media (max-width: 720px) {
+    .link-input {
+        font-size: 35px;
+        text-align: center;
+        width: 80vw;
+        margin-left: 20px;
+        margin-right: 20px;
+        border: none;
+        background: black;
+        color: white;
+        border-bottom: 3px solid white;
+    }
+}
 
 .link-input:focus {
     outline: none;
