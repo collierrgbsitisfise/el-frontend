@@ -64,14 +64,14 @@ class HomePage extends React.Component {
                 isPrivateOnly: !this.state.isPrivateOnly
               });
             }}/>
-          <span className="label-text">For private(incognito) only</span>
+          <span className="label-text">For private only</span>
         </label>
       </div>
     )
 
     const onceAvailable = (
       <div className="container">
-        <label htmlFor="once-availabel-checkbox">
+        <label htmlFor="once-availabel-checkbox" className="once-available-label">
           <input
             value={this.state.isOnceAvailable}
             id="once-availabel-checkbox"
@@ -83,7 +83,7 @@ class HomePage extends React.Component {
                 isOnceAvailable: !this.state.isOnceAvailable
               });
             }}/>
-          <span className="label-text">Once available link</span>
+          <span className="label-text">Once available</span>
         </label>
       </div>
     ); 
@@ -108,8 +108,10 @@ class HomePage extends React.Component {
           type="text"
           className="link-input"
           placeholder="Enter Link Address"/>
-          {privateMode}
-          {onceAvailable}
+          <div className="actions-container">
+            {privateMode}
+            {onceAvailable}
+          </div>
           {
             LINK_REG_EXP.test(this.state.link) ? 
               (
@@ -137,6 +139,13 @@ class HomePage extends React.Component {
               </div>
             )
           } */}
+          <div  className="modal-window">
+            <div>
+                <a href="#modal-close" title="Close" className="modal-close">Close</a>
+                <h1>Voilà!</h1>
+                <div>A CSS-only modal based on the :target pseudo-class. Hope you find it helpful. <a href="https://twitter.com/timothylong" target="_blank">Say hello on Twitter.</a></div>
+            </div>
+          </div>
       </div>
     ); 
   }
