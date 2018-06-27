@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 // import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { getLink } from "../../actions/link";
+import { getLink, clearInfo } from "../../actions/link";
 import CONGIF from "../../config";
 
 import "./home-page.css";
@@ -47,8 +47,23 @@ class HomePage extends React.Component {
     
     const {
       getLink,
-      shortLink
+      shortLink,
+      clearInfo
     } = this.props;
+
+    const resultPopUp = (
+      <div id="popup1" className="overlay">
+        <div className="popup">
+          <a target="_blank" href={(shortLink.status === "FINISHED" && shortLink.error === false) && this.formatShortLink(shortLink.data.shortLinkHash)}>
+            <h2 className="result-link-popup">
+                  {(shortLink.status === "FINISHED" &&
+                  shortLink.error === false) && this.formatShortLink(shortLink.data.shortLinkHash)}
+            </h2>
+          </a>
+            <a className="close" onClick={() => clearInfo()}>&times;</a>
+        </div>
+      </div>
+    );
 
     const privateMode = (
       <div className="container">
@@ -90,7 +105,7 @@ class HomePage extends React.Component {
     
     return (
       <div className="home-page">
-        {
+        {/* {
           (shortLink.status === "FINISHED" &&
            shortLink.error === false) && 
           (
@@ -100,7 +115,7 @@ class HomePage extends React.Component {
               </a>
             </div>
           )
-        }
+        } */}
         <input
           value={this.state.link}
           onChange={this.handleChange}
@@ -139,13 +154,8 @@ class HomePage extends React.Component {
               </div>
             )
           } */}
-          <div  className="modal-window">
-            <div>
-                <a href="#modal-close" title="Close" className="modal-close">Close</a>
-                <h1>Voilà!</h1>
-                <div>A CSS-only modal based on the :target pseudo-class. Hope you find it helpful. <a href="https://twitter.com/timothylong" target="_blank">Say hello on Twitter.</a></div>
-            </div>
-          </div>
+          {(shortLink.status === "FINISHED" &&
+           shortLink.error === false) && resultPopUp}
       </div>
     ); 
   }
@@ -163,4 +173,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, { getLink })(HomePage);
+export default connect(mapStateToProps, { getLink, clearInfo })(HomePage);

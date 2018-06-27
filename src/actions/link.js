@@ -1,7 +1,8 @@
 import {
     GET_SHORT_LINK_REQUEST,
     GET_SHORT_LINK_REQUEST_SUCCESS,
-    GET_SHORT_LINK_REQUEST_ERROR
+    GET_SHORT_LINK_REQUEST_ERROR,
+    CLEAR_LINK_INFO
 } from './../types';
 
 import linkAPI from './../api/api';
@@ -32,6 +33,10 @@ export const getShortLinkRequestError = err => ({
     }
 });
 
+export const clearLinkInfo = err => ({
+    type: CLEAR_LINK_INFO,
+    data: {}
+});
 
 export const getLink = (link,privateOnly=false,isOnceAvailable=false) => dispatch => {
     dispatch(getShortLinkRequest(link));
@@ -39,3 +44,5 @@ export const getLink = (link,privateOnly=false,isOnceAvailable=false) => dispatc
         .then(body => dispatch(getShortLinkRequestSuccess(body.data)))
         .catch(err => dispatch(getShortLinkRequestError(err)));
 }
+
+export const clearInfo = () => dispatch => dispatch(clearLinkInfo());
