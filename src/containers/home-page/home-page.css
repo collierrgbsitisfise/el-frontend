@@ -185,7 +185,6 @@
     content: "✔";
 }
 
-
 /*modal window styles*/
 
 .overlay {
@@ -198,9 +197,9 @@
     transition: opacity 500ms;
     visibility: visible;
     opacity: 1;
-  }
+}
 
-  .popup {
+.popup {
     margin: 70px auto;
     padding: 20px;
     background: #fff;
@@ -208,10 +207,31 @@
     width: 60%;
     position: relative;
     transition: all 5s ease-in-out;
-  }
-  
+}
 
-  .popup .close {
+.popup a:link {
+    color: black;
+}
+
+/* visited link */
+
+.popup a:visited {
+    color: black;
+}
+
+/* mouse over link */
+
+.popup a:hover {
+    color: black;
+}
+
+/* selected link */
+
+.popup a:active {
+    color: black;
+}
+
+.popup .close {
     transition: all 200ms;
     font-size: 30px;
     font-weight: bold;
@@ -221,30 +241,30 @@
     top: 0;
     margin: 5px;
     right: 0;
-  }
-
-  .close:hover {
-      cursor: pointer;
-  }
-
-  .result-link-popup {
-      margin-top: 25px;
-      font-size: 18px;
-      text-overflow: ellipsis;
-      overflow: hidden;
-      color: #333;
 }
-  
-  .popup .content {
+
+.close:hover {
+    cursor: pointer;
+}
+
+.result-link-popup {
+    margin-top: 25px;
+    font-size: 18px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    color: #333;
+}
+
+.popup .content {
     max-height: 30%;
     overflow: auto;
-  }
-  
-  @media screen and (max-width: 700px){
-    .box{
-      width: 85%;
+}
+
+@media screen and (max-width: 700px) {
+    .box {
+        width: 85%;
     }
-    .popup{
-      width: 85%;
+    .popup {
+        width: 85%;
     }
-  }
+}

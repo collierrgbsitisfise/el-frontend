@@ -59,6 +59,7 @@ class HomePage extends React.Component {
                   {(shortLink.status === "FINISHED" &&
                   shortLink.error === false) && this.formatShortLink(shortLink.data.shortLinkHash)}
             </h2>
+            <h2><a href="https://web.telegram.org/#/im?p=@easy_link_service_bot" target="_blank">Telegram Bot</a></h2>
           </a>
             <a className="close" onClick={() => clearInfo()}>&times;</a>
         </div>
