@@ -37,9 +37,9 @@ class ProxyPage extends React.Component {
                 proxyList.status === 'FINISHED' && proxyList.data.map((item,key) => {
                     return (
                         <div className="proxy-row">
-                            <div>{String(item.ip).trim()}</div>
-                            <div>{String(item.port).trim()}</div>
-                            <div>{String(item.country).trim()}</div>
+                            <div align="left">{String(item.ip).trim()}</div>
+                            <div align="left">{String(item.port).trim()}</div>
+                            <div align="left">{String(item.country).trim()}</div>
                         </div>
                     )
                 })

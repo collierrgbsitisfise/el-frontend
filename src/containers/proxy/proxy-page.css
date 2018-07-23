@@ -39,8 +39,9 @@
     display: flex;
     flex-flow: row;
     align-items: center;
-    justify-content: space-around;
+    justify-content: flex-start;
     font-size: 25px; 
+    border-bottom: 1px solid gray;
 }
 
 /* width */
