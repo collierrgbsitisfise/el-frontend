@@ -1,7 +1,65 @@
 .proxy-table {
     color: white;
     border: 1px solid white;
-    width: 600px;
+    width: 800px;
     display: flex;
-    align-items: column;
+    flex-flow: column;
+    align-items: center;
 }
+
+.proxy-table .header {
+    width: 100%;
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    justify-content: space-around;
+    font-size: 28px;
+    background: white;
+    color: black;
+}
+
+.proxy-table .content {
+    width: 100%;
+    flex-flow: column;
+    height: 500px;
+    overflow-y: scroll;
+}
+
+.proxy-table .content .proxy-row {
+    width: 100%;
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    justify-content: space-around;
+
+}
+
+.proxy-table .content .proxy-row > div {
+    width: 100%;
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    justify-content: space-around;
+    font-size: 25px; 
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: transparent; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+}
+
