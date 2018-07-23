@@ -1,0 +1,7 @@
+.proxy-table {
+    color: white;
+    border: 1px solid white;
+    width: 600px;
+    display: flex;
+    align-items: column;
+}
