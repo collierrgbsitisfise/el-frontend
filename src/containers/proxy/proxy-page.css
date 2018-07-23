@@ -17,7 +17,13 @@
     background: white;
     color: black;
 }
-
+.proxy-table .header > div {
+    width: 100%;
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    justify-content: flex-start;
+}
 .proxy-table .content {
     width: 100%;
     flex-flow: column;
@@ -42,11 +48,16 @@
     justify-content: flex-start;
     font-size: 25px; 
     border-bottom: 1px solid gray;
+    white-space: nowrap;
+    overflow: scroll;
+    text-overflow: ellipsis;
+    border-left: 1px solid gray;
 }
 
 /* width */
 ::-webkit-scrollbar {
-    width: 10px;
+    width: 2px;
+    height: 2px;
 }
 
 /* Track */

@@ -30,6 +30,7 @@ class ProxyPage extends React.Component {
                <div>Ip</div>
                <div>Port</div>
                <div>country</div>
+               <div>Lust update</div>
            </div>
            <div className="content">
                {
@@ -39,6 +40,7 @@ class ProxyPage extends React.Component {
                             <div>{String(item.ip).trim()}</div>
                             <div>{String(item.port).trim()}</div>
                             <div>{String(item.country).trim()}</div>
+                            <div>{Math.floor(((Number(Date.now()) - Number(item.time))/1000/60) << 0)} min. ago</div>
                         </div>
                     )
                 })
