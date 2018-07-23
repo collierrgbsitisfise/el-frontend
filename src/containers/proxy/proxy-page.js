@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { getProxy } from "./../../actions/proxy";
+import Preloader from "./../../components/preloader/preloader"
 import "./proxy-page.css";
 
 
@@ -22,11 +23,9 @@ class ProxyPage extends React.Component {
         proxyList
     } = this.props;
 
-    console.log('it is proxy data');
-    console.log(proxyList);
-
     return (
        <div className="proxy-table">
+           {proxyList.status === 'PENDING' && <Preloader/>}
            <div className="header">
                <div>Ip</div>
                <div>Port</div>
@@ -34,12 +33,12 @@ class ProxyPage extends React.Component {
            </div>
            <div className="content">
                {
-                proxyList.status === 'FINISHED' && proxyList.data.map((item,key) => {
+                proxyList.status === 'FINISHED' && proxyList.data.map((item) => {
                     return (
-                        <div className="proxy-row">
-                            <div align="left">{String(item.ip).trim()}</div>
-                            <div align="left">{String(item.port).trim()}</div>
-                            <div align="left">{String(item.country).trim()}</div>
+                        <div className="proxy-row" key={item._id}>
+                            <div>{String(item.ip).trim()}</div>
+                            <div>{String(item.port).trim()}</div>
+                            <div>{String(item.country).trim()}</div>
                         </div>
                     )
                 })

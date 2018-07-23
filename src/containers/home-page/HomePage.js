@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { getLink, clearInfo } from "../../actions/link";
 import CONGIF from "../../config";
-
+import Preloader from "./../../components/preloader/preloader";
 import "./home-page.css";
 
 const LINK_REG_EXP = /^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/i;
@@ -107,17 +107,7 @@ class HomePage extends React.Component {
     
     return (
       <div className="home-page">
-        {/* {
-          (shortLink.status === "FINISHED" &&
-           shortLink.error === false) && 
-          (
-            <div id="top">
-              <a href={this.formatShortLink(shortLink.data.shortLinkHash)} target="_blank">
-                <h3 className="result-link">{this.formatShortLink(shortLink.data.shortLinkHash)}</h3>
-              </a>
-            </div>
-          )
-        } */}
+        {shortLink.status === 'PENDING' && <Preloader/>}
         <input
           value={this.state.link}
           onChange={this.handleChange}
@@ -147,15 +137,6 @@ class HomePage extends React.Component {
                 </button>
               )
           }
-          {/* {
-            (shortLink.status === "FINISHED" &&
-            shortLink.error === false) && 
-            (
-              <div id="bottom" onClick={ () => this.copyTextToClipboard('.result-link')}>
-                <h4>COPPY TO CLI BORD</h4>
-              </div>
-            )
-          } */}
           {(shortLink.status === "FINISHED" &&
            shortLink.error === false) && resultPopUp}
       </div>
